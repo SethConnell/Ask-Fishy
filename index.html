@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fishy</title>
+    <!-- Added JavaScript's jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <link rel="icon" href="askfishyfavicon.png">
+    
+    <style>
+        
+        .searchTerm {
+          width: 100%;
+          border: 3px solid #D9D9D9;
+          padding: 50px;
+          height: 100px;
+          border-radius: 5px 5px 5px 5px;
+          outline: none;
+          color: #D9D9D9;
+          font-size: 24px;
+        }
+        
+        .search {
+          width: 100%;
+          position: relative;
+          display: flex;
+        }
+        
+        /*Resize the wrap to see the search bar change!*/
+        .wrap{
+          position: absolute;
+          top: 30%;
+          left: 50%;
+         width: auto;
+          transform: translate(-50%, -50%);
+        }
+        
+        #searchlogo {
+          width: 25%;
+          margin: auto;
+          display: flex;
+        }
+        #modallogo {
+          width: 100px;
+          display: inline-flex;
+        }
+        #question {
+            height: 80vh;
+            width: 100%;
+            resize: none;
+            border: none;
+            outline: none;
+            font-size: 22px;
+        }
+        #question::placeholder {
+            font-size: 22px;
+        }
+        
+        .submit {
+            background-color: #01C3A7;
+            border-radius: 5px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;
+            color: white;
+            
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    
+    <div class="wrap">
+        <img src="askfishylogo.png" id="searchlogo">
+       <div class="search">
+          <input type="text" class="searchTerm" placeholder="Ask Fishy" data-target="#askQuestion" data-toggle="modal">
+         </button>
+       </div>
+    </div>
+    
+    
+    
+<!-- Modal -->
+<div id="askQuestion" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><img src="askfishylogo.png" id="modallogo">(Questions on Fishy are always anonymous).</h4>
+      </div>
+      <div class="modal-body">
+          <textarea placeholder="What's Your Question?" id="question"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="submit" type="button" class="btn" data-dismiss="modal">Ask Fishy</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</body>
+
+</html>
