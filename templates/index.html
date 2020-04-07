@@ -82,7 +82,7 @@
 
 <body>
 <div class="container">
-    
+    <form action="{{ url_for('question') }}" method="post">
     <div class="wrap">
         <img src="static/askfishylogo.png" id="searchlogo">
        <div class="search">
@@ -102,16 +102,17 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title"><img src="static/askfishylogo.png" id="modallogo">(Questions on Fishy are always anonymous).</h4>
       </div>
-      <div class="modal-body">
-          <textarea placeholder="What's Your Question?" id="question"></textarea>
-      </div>
-      <div class="modal-footer">
-        <button class="submit" type="button" class="btn" data-dismiss="modal">Ask Fishy</button>
-      </div>
+              <div class="modal-body">
+                  <textarea placeholder="What's Your Question?" id="question" name="question"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button class="submit" type="submit" class="btn">Ask Fishy</button>
+              </div>
     </div>
 
   </div>
 </div>
+    </form>
 </div>
 <div id="footer">
   <p>© Ask Fishy - All Rights Reserved</p>
