@@ -1,9 +1,24 @@
 import MySQLdb
 
 # Open database connection
-db = MySQLdb.connect(host="{USERNAME}.mysql.pythonanywhere-services.com",user="{USERNAME}",passwd="{PASSWORD}",db="{DATABASE NAME}" )
+class DB:
+  conn = None
 
-cursor = db.cursor()
+  def connect(self):
+    self.conn = MySQLdb.connect(host="{USERNAME}.mysql.pythonanywhere-services.com",user="{USERNAME}",passwd="{PASSWORD}",db="{DATABASE NAME}" )
+
+  def query(self, sql):
+    try:
+      cursor = self.conn.cursor()
+      cursor.execute(sql)
+    except (AttributeError, MySQLdb.OperationalError):
+      self.connect()
+      cursor = self.conn.cursor()
+      cursor.execute(sql)
+    return cursor
+
+db = DB()
+
 
 def Setup():
     # Create infastructure for "Questions".
@@ -12,7 +27,7 @@ def Setup():
        `questionid` MEDIUMINT NOT NULL AUTO_INCREMENT,
        PRIMARY KEY (questionid)
     )'''
-    cursor.execute(sql)
+    db.query(sql)
 
     # Create infastructure for "Answers".
     sql ='''CREATE TABLE IF NOT EXISTS `User`(
@@ -20,13 +35,13 @@ def Setup():
        `userid` MEDIUMINT NOT NULL AUTO_INCREMENT,
        PRIMARY KEY (userid)
     )'''
-    cursor.execute(sql)
+    db.query(sql)
 
     # Create infastructure for "Answers".
     sql ='''CREATE TABLE IF NOT EXISTS `Answers`(
        `questionid` MEDIUMINT NOT NULL,
        `answer` CHAR(255) NOT NULL
     )'''
-    cursor.execute(sql)
+    db.query(sql)
 
 Setup()
